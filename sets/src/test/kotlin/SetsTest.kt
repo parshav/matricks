@@ -38,6 +38,18 @@ class SetsTest {
 
         dummyArray1.isDisjointWith(dummyArray3)
     }
+
+    @Test
+    fun `Array Difference`() = assertTrueBlock {
+
+        differenceOf(dummyArray1, dummyArray2) == setOf(9, 11, 13)
+    }
+
+    @Test
+    fun `Array Difference Extension`() = assertTrueBlock {
+
+        dummyArray1.differenceWith(dummyArray2) == setOf(9, 11, 13)
+    }
 }
 
 fun assertTrueBlock(block: () -> Boolean) {
