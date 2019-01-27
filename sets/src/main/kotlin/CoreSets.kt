@@ -14,6 +14,7 @@ infix fun <T> Array<T>.union(to: Array<T>): Set<T> {
  * */
 infix fun <T> Array<T>.intersect(to: Array<T>): Set<T> = to.filter { this.contains(it) }.toSet()
 
+
 /**
  * Is disjoint if no matching elements b/w arrays
  * */
@@ -28,3 +29,11 @@ infix fun <T> Array<T>.isDisjointWith(to: Array<T>) = isDisjoint(this, to)
 fun <T> differenceOf(f: Array<T>, s: Array<T>): Set<T> = f.filter { !s.contains(it) }.toSet()
 
 infix fun <T> Array<T>.differenceWith(s: Array<T>): Set<T> = differenceOf(this, s)
+
+
+/**
+ * Symmetric difference b/w arrays
+ * */
+fun <T> symmetricDifference(f: Array<T>, s: Array<T>): Set<T> = differenceOf(f, s) union differenceOf(s, f)
+
+infix fun <T> Array<T>.symmetricDifferenceWith(s: Array<T>): Set<T> = symmetricDifference(this, s)

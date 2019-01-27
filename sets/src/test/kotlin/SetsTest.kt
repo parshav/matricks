@@ -50,6 +50,12 @@ class SetsTest {
 
         dummyArray1.differenceWith(dummyArray2) == setOf(9, 11, 13)
     }
+
+    @Test
+    fun `Symmetric Difference`() = assertTrueBlock {
+
+        symmetricDifference(dummyArray1, dummyArray2) == setOf(9, 11, 13, 2, 4, 6)
+    }
 }
 
 fun assertTrueBlock(block: () -> Boolean) {
