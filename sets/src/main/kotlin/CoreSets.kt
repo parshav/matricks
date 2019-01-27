@@ -22,7 +22,7 @@ infix fun <T> Array<T>.union(to: Array<T>): Set<T> {
 /**
  * Elements in both arrays
  * */
-infix fun <T> Array<T>.intersect(to: Array<T>): Set<T> = to.filter { it == this }.toSet()
+infix fun <T> Array<T>.intersect(to: Array<T>): Set<T> = to.filter { this.contains(it) }.toSet()
 
 /**
  * Is disjoint if no matching elements b/w arrays
