@@ -37,3 +37,24 @@ infix fun <T> Array<T>.differenceWith(s: Array<T>): Set<T> = differenceOf(this, 
 fun <T> symmetricDifference(f: Array<T>, s: Array<T>): Set<T> = differenceOf(f, s) union differenceOf(s, f)
 
 infix fun <T> Array<T>.symmetricDifferenceWith(s: Array<T>): Set<T> = symmetricDifference(this, s)
+
+/**
+ * Cardinality
+ * */
+fun <T> Array<T>.cardinality() = size
+
+typealias Cardinality = Int
+
+
+/**
+ * Power set
+ * */
+fun <T> powerSet(set: Set<T>): Set<Set<T>> {
+
+    return if (set.isEmpty()) setOf(emptySet())
+    else {
+        println("Current Set $set")
+        val droppedSet = powerSet(set.drop(1).toSet())
+        droppedSet + droppedSet.map { it + set.first() }
+    }
+}
